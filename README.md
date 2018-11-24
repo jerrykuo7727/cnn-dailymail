@@ -39,3 +39,22 @@ This script will do several things:
 * The directories `cnn_stories_tokenized` and `dm_stories_tokenized` will be created and filled with tokenized versions of `cnn/stories` and `dailymail/stories`. This may take some time. ***Note**: you may see several `Untokenizable:` warnings from Stanford Tokenizer. These seem to be related to Unicode characters in the data; so far it seems OK to ignore them.*
 * For each of the url lists `all_train.txt`, `all_val.txt` and `all_test.txt`, the corresponding tokenized stories are read from file, lowercased and written to tarball files `train.tar`, `val.tar` and `test.tar`. These will be placed in the newly-created `finished_files` directory. This may take some time.
 * Additionally, a `vocab_cnt.pkl` file is created from the training data. This is also placed in `finished_files`. This is a python Counter of all words, which could be useful for determining the vocabulary by word appearance count.
+
+## 4. Generate and evaluate ROUGE of Lead-3 summaries
+[pyrouge](https://github.com/bheinzerling/pyrouge/) is used for evaluation.
+After setting up pyrouge, add the following command to your bash_profile:
+```
+export ROUGE=/path/to/ROUGE-1.5.5
+```
+
+Then, untar `finished_files/test.tar` manually or run
+```
+tar -xvf finished_files/test.tar -C finished_files
+```
+
+Fianlly, run
+```
+python make_lead_3.py
+python eval_lead_3.py
+```
+to write references and Lead-3 summaries into `lead_3/` with ROUGE scores evaluating. The result of evaluation would be saved in `lead_3.txt`.
