@@ -57,4 +57,6 @@ Finally, run
 python make_lead_3.py
 python eval_lead_3.py
 ```
-to write references and Lead-3 summaries into `lead_3/` with ROUGE scores evaluating. The result of evaluation would be saved in `lead_3.txt`.
+to write references and Lead-3 summaries into `lead_3/` with ROUGE scores evaluating.
+
+The result of evaluation would be saved in `lead_3.txt`.
