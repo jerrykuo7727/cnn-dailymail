@@ -52,7 +52,7 @@ Then, untar `finished_files/test.tar` manually or run
 tar -xvf finished_files/test.tar -C finished_files
 ```
 
-Fianlly, run
+Finally, run
 ```
 python make_lead_3.py
 python eval_lead_3.py
